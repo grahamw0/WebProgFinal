@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+  <title>Map Test</title>
+</head>
+
+<body>
+  
+  <object id="map" data="usaHigh.svg" type="image/svg+xml" height="800px" width="100%"></object>
+  <p>Text after map</p>
+
+  <!-- <script type="text/javascript"> -->
+  <!--   var pic = document.getElementById("map"); -->
+  <!--   piv.addEventListener("load",function(){ -->
+  <!--   var innards = pic.getSVGDocument(); -->
+  <!--   innards.getElementById("US-NJ").addEventListener("mousedown", function() { -->
+  <!--   alert("NJ!"); -->
+  <!--   }) -->
+  <!--   }) -->
+
+  <script type="text/javascript">
+ // when the picture loads, get the region we want inside it
+ var svgpic = document.getElementById("map");
+ svgpic.addEventListener("load",function(){
+  var svginnards = svgpic.getSVGDocument();
+  svginnards.getElementById("US-NJ").addEventListener("mouseup", function() {
+     window.location="check.html";
+  })
+  svginnards.getElementById("US-NJ").addEventListener("mousemove", function() {
+     svginnards.getElementById("US-NJ").style.fill="red";
+  })
+  svginnards.getElementById("US-NJ").addEventListener("mouseout", function() {
+     svginnards.getElementById("US-NJ").style.fill="#33cc33";
+  })
+ 
+  svginnards.getElementById("US-NY").addEventListener("mouseup", function() {
+     window.location="done.html";
+  })  
+  svginnards.getElementById("US-NY").addEventListener("mousemove", function() {
+     svginnards.getElementById("US-NY").style.fill="red";
+  })
+  svginnards.getElementById("US-NY").addEventListener("mouseout", function() {
+     svginnards.getElementById("US-NY").style.fill="yellow";
+  })
+ })
+</script>
+  
+
+  </script>
+
+</body>
